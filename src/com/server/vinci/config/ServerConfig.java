@@ -3,7 +3,6 @@ package com.server.vinci.config;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map;
 import java.util.Properties;
 
@@ -16,7 +15,7 @@ public class ServerConfig {
     private static final String DEFAULT_CONFIG="server.properties";
     private Map<String,Object>  configs;
     public ServerConfig(){
-        new ServerConfig(DEFAULT_CONFIG);
+        this(DEFAULT_CONFIG);
     }
     public ServerConfig(String file){
         Properties property=new Properties();

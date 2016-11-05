@@ -1,8 +1,8 @@
 package com.server.vinci.core;
 
 import com.server.vinci.config.ServerConfig;
-import com.server.vinci.http.Request;
-import com.server.vinci.http.Response;
+import com.server.vinci.http.HttpRequest;
+import com.server.vinci.http.HttpResponse;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,9 +44,9 @@ public class HttpServer {
                     socket=serverSocket.accept();
                     inputStream=socket.getInputStream();
                     outputStream=socket.getOutputStream();
-                    Request request=new Request(inputStream);
+                    HttpRequest request=new HttpRequest(inputStream);
                     request.parse();
-                    Response response=new Response(outputStream);
+                    HttpResponse response=new HttpResponse(outputStream);
                     response.setRequest(request);
                     socket.close();
                 } catch (IOException e) {
